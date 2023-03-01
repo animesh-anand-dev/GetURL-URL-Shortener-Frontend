@@ -1,70 +1,165 @@
-# Getting Started with Create React App
+# GetURL - A URL Shortener Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+GetURL is a **URL Shortener Frontend** developed using **React JS** and interact with backend built using **Spring Boot** , which is used to shorten the **Long URL** into **Shorten URL**. **[URL-Shortener-Microservice](https://github.com/animesh-anand-dev/URL-Shortener-Microservice/)** provides **REST API** endpoints to interact with.
+![react-springboot-mongodb](https://user-images.githubusercontent.com/64230897/222250879-8a4fcffe-2639-4f4a-a54e-8e72fbd16970.png)
+## Demo
 
-## Available Scripts
+[Full Stack Project with **React** and **Spring Boot** where this project is used as a frontend.](https://geturl.codelabs.tech/)
 
-In the project directory, you can run:
+## Screenshots
+![geturl-screenshot](https://user-images.githubusercontent.com/64230897/222252404-6286e8a2-a2b0-4da0-9393-bf8c84cd65a8.png)
 
-### `npm start`
+## Run Locally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the project
+```
+ git clone https://github.com/animesh-anand-dev/GetURL-URL-Shortener-Frontend.git
+```
+2. Open **[VS Code](https://spring.io/tools)** or any other IDE of your choice open the **GetURL-URL-Shortener-Frontend** folder.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. In terminal chnage directory to the **GetURL-URL-Shortener-Frontend** folder.
+ -   For Windows
+    ```
+      cd GetURL-URL-Shortener-Frontend
+    ```
+4. If you don't have Node on your machine then download [Node](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-### `npm test`
+5. Now run npm to install the required dependencies.
+```
+  npm install
+```
+6. Now start the react app by this command
+```
+  npm start
+```
+## ⚠ Caution
+- This project might run on your machine but not working properly because don't have proper connection to the backend.
+- Use or Build any backend of your choice and expose your API URL in **.env** file on your project root directory.
+  ```
+    REACT_APP_API_URL=https://api.yourdomain.com
+  ```
+- If you are familiar with **Java** and **Spring Boot** you can clone my project [URL-Shortener-Microservice](https://github.com/animesh-anand-dev/URL-Shortener-Microservice) and run it as a backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+😊 Happy Coding 🎉
 
-### `npm run build`
+## API Reference of Backend for your use.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Get all urls 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+  GET /urls
+```
+```http
+  http://localhost:5000/urls
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Get a url details
 
-### `npm run eject`
+```
+  GET /${id}/details
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```http
+  http://localhost:5000/random_id/details
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of Shorten Url to fetch details|
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Post a url
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+  POST /urls
+```
 
-## Learn More
+```http
+  http://localhost:5000/urls
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Request body | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `originalUrl`      | `string` | **Required**. originalUrl of Long URL to create shorten link.|
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Get request to shorten link which redirects to its original URL
 
-### Code Splitting
+```
+  GET /${id}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```http
+  http://localhost:5000/random_id
+```
 
-### Analyzing the Bundle Size
+## Dependencies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **[Animate.css](https://animate.style/)**
+  Animate.css is a library of ready-to-use, cross-browser animations for use in your web projects. Great for emphasis, home pages, sliders, and attention-       guiding hints.
+  ```
+    npm install animate.css --save
+  ```
+ - **[AXIOS](https://www.npmjs.com/package/axios)**
+    Promise based HTTP client for the browser and node.js.
+    ```
+      npm install axios
+    ```
+- **[Bootstrap](https://getbootstrap.com/)**
+  Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.
+  ```
+    npm i bootstrap@5.3.0-alpha1
+  ```
+- **[Bootstrap Icons](https://icons.getbootstrap.com/)**
+  Free, high quality, open source icon library with over 1,800 icons. Include them anyway you like—SVGs, SVG sprite, or web fonts. Use them with or without Bootstrap in any project.
+  ```
+    npm i bootstrap-icons
+  ```
+- **[React](https://reactjs.org/docs/getting-started.html)**
+ A JavaScript library for building user interfaces.
 
-### Making a Progressive Web App
+- **[React Copy to Clipboard](https://www.npmjs.com/package/react-copy-to-clipboard)**
+  Copy to clipboard React component
+  ```
+    npm install --save react-copy-to-clipboard
+  ```
+- **[ReactDOM](https://reactjs.org/docs/react-dom.html)**
+ The react-dom package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside the React model if you need to.
+ 
+- **[React Router DOM](https://www.npmjs.com/package/react-router-dom)**
+  The react-router-dom package contains bindings for using React Router in web applications.
+  ```
+    npm i react-router-dom
+  ```
+- **[React Scripts](https://www.npmjs.com/package/react-scripts)**
+  This package includes scripts and configuration used by Create React App
+  ```
+    npm i react-scripts
+  ```
+- **[TypewriterJS v2](https://www.npmjs.com/package/typewriter-effect)**
+  A simple yet powerful native javascript plugin for a cool typewriter effect.
+  ```
+    npm i typewriter-effect
+  ```
+- **[validator.js](https://www.npmjs.com/package/validator)**
+  A library of string validators and sanitizers.
+  ```
+    npm i validator
+  ```
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<p>
+  <img width="50"align="center" src="https://user-images.githubusercontent.com/64230897/222225914-ed0f7818-df07-467c-84a8-865252cdfa8a.jpg" alt="animesh-anand"/><b align="right"> Animesh Anand </b>
+</p> 
 
-### Advanced Configuration
+* Website: https://animeshanand.web.app/
+* Github: [@animesh-anand-dev](https://github.com/animesh-anand-dev)
+* LinkedIn: https://linkedin.com/animeshanand
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Show your support
 
-### Deployment
+Give a ⭐️ if this project helped you!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📝 License
 
-### `npm run build` fails to minify
+Copyright © 2023 [Animesh Anand](https://github.com/animesh-anand-dev).<br />
+This project is [MIT License](https://github.com/animesh-anand-dev/URL-Shortener-Microservice/blob/master/LICENSE) licensed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
